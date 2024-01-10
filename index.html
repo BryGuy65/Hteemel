@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Load HTML Content into New Tab</title>
+    <title>My Drive - Google Drive</title>
     <style>
         body, html {
             margin: 0;
@@ -32,7 +32,7 @@
                 reader.onload = function (e) {
                     // Open content in a new tab
                     var newWindow = window.open();
-                    newWindow.document.write('<html><head><title>Embedded Content</title></head><body>');
+                    newWindow.document.write('<html><head><titleMy Drive - Google DriveEmbedded Content</title></head><body>');
                     newWindow.document.write(e.target.result);
                     newWindow.document.write('</body></html>');
                 };
@@ -62,3 +62,4 @@
     <button onclick="loadFile()">Load HTML Content</button>
 </body>
 </html>
+If it doesn't work, try reloading first!
