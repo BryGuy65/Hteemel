@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Drive - Google</title>
+    <style>
+        body, html {
+            padding: 0;
+            height: %;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: rgb(255, 255, 255);
+            background-color: rgb(50, 50, 50);
+            font-size: 30px;
+        }
+
+        label, input, button {
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function loadFile() {
+            var input = document.getElementById('htmlInput');
+            
+            var file = input.files[0];
+            
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    // Open content in a new tab
+                    var newWindow = window.open();
+                    newWindow.document.write('<html><head><title>My Drive - Google</title></head><body>');
+                    newWindow.document.write(e.target.result);
+                    newWindow.document.write('</body></html>');
+                };
+                reader.readAsText(file);
+            }
+        }
+    </script>
+</head>
+<body>
+    <label for="htmlInput">Choose an HTML file:</label>
+    <input type="file" id="htmlInput" accept=".html">
+
+    <button onclick="loadFile()">Load File</button>
+</body>
+</html>
+Opens a file in a new tab!
