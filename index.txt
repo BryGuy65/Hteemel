@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Drive - Google Drive</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        label, input, textarea, button {
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function loadFile() {
+            var input = document.getElementById('htmlInput');
+            var textarea = document.getElementById('htmlTextarea');
+            var content = input.value.trim() || textarea.value.trim();
+            
+            if (content) {
+                // Open content in a new tab
+                var newWindow = window.open();
+                newWindow.document.write('<html><head><title>My Drive - Google Drive</title></head><body>');
+                newWindow.document.write(content);
+                newWindow.document.write('</body></html>');
+            }
+        }
+    </script>
+</head>
+<body>
+    <label for="htmlInput">Choose an HTML file:</label>
+    <input type="file" id="htmlInput" accept=".html">
+
+    <label for="htmlTextarea">Or paste HTML code:</label>
+    <textarea id="htmlTextarea" rows="4" cols="50"></textarea>
+
+    <button onclick="loadFile()">Load HTML Content</button>
+</body>
+</html>
